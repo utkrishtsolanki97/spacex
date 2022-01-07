@@ -1,0 +1,32 @@
+.app{
+    background-color: whitesmoke;
+}
+.activeButton{
+    background-color: green;
+    border: 1px solid 72c988;
+    border: none;
+    margin: 8px;
+    border-radius: 0.25rem;
+    padding: 8px 16px;
+}
+.inactiveButton{
+    background-color: #72c988;
+    border: 1px solid 72c988;
+    border: none;
+    margin: 8px;
+    border-radius: 0.25rem;
+    padding: 8px 16px;
+}
+    .btn {
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    
+}
+.filter{
+    background-color: white;
+    border-radius: .25rem;
+    text-align: center;
+}
