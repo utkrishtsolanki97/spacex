@@ -1,20 +1,24 @@
-import React, { useState } from "react";
-import HomePage from "./Pages/HomePage";
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { loadMissions } from './actions/spacexActions'
+import HomePage from './Pages/HomePage'
 
 const App = () => {
-  const [spacexData, setSpacexData] = useState([]);
+  const dispatch = useDispatch()
+
+  const missionData = useSelector((state) => state.launchList)
+  const { loading, missionList } = missionData
+
 
   React.useEffect(() => {
-    fetch("https://api.spacexdata.com/v3/launches?limit=100")
-      .then((response) => response.json())
-      .then((data) => setSpacexData(data));
-  }, []);
+    dispatch(loadMissions())
+  }, [])
 
   return (
     <div>
-      <HomePage launches={spacexData} />
+      <HomePage launches={missionList} loading={loading} />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

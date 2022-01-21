@@ -1,12 +1,9 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import Tile from '../Components/Tile'
 import {
-  Button,
-  ButtonGroup,
-  ButtonToolbar,
   Col,
   Row,
-  ToggleButton,
+  Spinner,
 } from 'react-bootstrap'
 import './HomePage.scss'
 
@@ -186,6 +183,7 @@ const HomePage = (props) => {
             </div>
           </Col>
           <Col xs={12} sm={9}>
+            {props.loading && <Spinner animation='border' /> }
             <Row>
               {filterActive
                 ? filteredArray.map((launch) => {
@@ -201,7 +199,8 @@ const HomePage = (props) => {
                       </Col>
                     )
                   })
-                : props.launches.map((launch) => {
+                : props.launches &&
+                  props.launches.map((launch) => {
                     return (
                       <Col
                         key={launch.flight_number}
